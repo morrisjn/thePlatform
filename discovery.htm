@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tp="http://player.theplatform.com/"  xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Made For Mobile Sample</title>
+	
+	<meta name="tp:PreferredRuntimes" content="Universal,Flash" />
+	<meta name="tp:PreferredFormats" content="M3U" />
+	<meta name="tp:EnableExternalController" content="true" />
+	<style type="text/css" media="screen">
+		body {
+			margin: 0px;
+			background-color: #131313;
+		}
+		.tpContainer {
+			position: relative;
+			width: 620px;
+			height: 530px;
+			padding-top: 5px;
+			padding-left: 5px;
+			padding-bottom: 5px;
+			padding-right: 5px;
+			background-image: url(http://pdk.theplatform.com/current/images/tile.jpg);
+			background-position: top;
+			background-repeat: repeat;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		.tpLayout {
+			position: relative;
+		}
+		.tpMessage {
+			font-size: 14px;
+			color: #bebebe;
+			background: #131313;
+		}
+		#player {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 620px;
+			height: 349px;
+		}
+		#info {
+			position: absolute;
+			top: 0px;
+			left: 624px;
+			width: -3px;
+			height: 349px;
+		}
+		#releases {
+			position: absolute;
+			top: 379px;
+			left: 0px;
+			width: 620px;
+			height: 147px;
+		}
+		#search {
+			position: absolute;
+			top: 359px;
+			left: 0px;
+			width: 310px;
+			height: 20px;
+		}
+		#navigation {
+			position: absolute;
+			top: 359px;
+			left: 310px;
+			width: 310px;
+			height: 20px;
+		}
+		#liveFeedList{
+			margin-top: 0px;
+			list-style-type: none;
+		}
+		.liveFeedItem {
+			width: 310px; height: 73px;
+		}
+		.title {
+			float:right; 
+			color:red;
+		}
+	</style>
+	<script type="text/javascript" src="http://pdk.theplatform.com/current/pdk/tpPdk.js?token=1410190161_648c3a27ade9d3b8f3b4a30b110f247d"></script>
+	<script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/discovery.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="http://pdk.theplatform.com/current/pdk/skins/brushed/main.css" />
+
+</head>
+<body>
+	<div class="tpContainer">
+		<div class="tpLayout">
+			<div class="tpPlayer" id="player"				
+				tp:allowFullScreen="true"
+				tp:skinUrl="http://pdk.sandbox.theplatform.com/pdk/skins/cinematic/cinematic.json"
+				tp:showNav="false"
+				tp:allowRss="true"
+				tp:layoutUrl="http://pdk.theplatform.com/current/data/metaLayout_floatingControls.xml"
+				tp:emailServiceURL="http://player.theplatform.com/m/B5F0OC/1Efib1bQz7V9/select/{releasePid}"
+				tp:relatedItemsUrl="http://feed.theplatform.com/f/B5F0OC/WZNGSwaBkOG0"
+				tp:allowLink="true"
+				tp:playerUrl="http://player.theplatform.com/p/B5F0OC/1Efib1bQz7V9/select/{releasePid}"
+				tp:embeddedPlayerHtml="&lt;iframe src=&quot;http://player.theplatform.com/p/B5F0OC/1Efib1bQz7V9/embed/select/{releasePid}&quot; width=&quot;620&quot; height=&quot;349&quot; frameborder=&quot;0&quot; seamless=&quot;seamless&quot; allowfullscreen&gt;Your browser does not support iframes.&lt;/iframe&gt;"
+				tp:altEmbeddedPlayerHtml="&lt;embed src=&quot;http://player.theplatform.com/p/B5F0OC/1Efib1bQz7V9/swf/select/{releasePid}&quot; width=&quot;620&quot; height=&quot;349&quot; type=&quot;application/x-shockwave-flash&quot; allowFullScreen=&quot;true&quot; bgcolor=&quot;0x131313&quot;/&gt;"
+				tp:showFullTime="true"
+				tp:controlBackgroundColor="0x131313"
+				tp:backgroundColor="0x131313"
+				tp:controlFrameColor="0x555555"
+				tp:frameColor="0x555555"
+				tp:textBackgroundColor="0x131313"
+				tp:controlHighlightColor="0x242424"
+				tp:controlHoverColor="0xdddddd"
+				tp:loadProgressColor="0xbebebe"
+				tp:controlSelectedColor="0xef2510"
+				tp:playProgressColor="0xef2510"
+				tp:scrubberFrameColor="0xef2510"
+				tp:controlColor="0xbebebe"
+				tp:textColor="0xbebebe"
+				tp:scrubberColor="0xbebebe"
+				tp:scrubTrackColor="0xbebebe"
+				tp:pageBackgroundColor="0x131313"
+				tp:plugin1="type=content|url=http://pdk.theplatform.com/current/pdk/js/plugins/uplynk.js|priority=1|runtime=flash|videoLayer=uplynk|formats=m3u">
+				<noscript class="tpError">To view this site, you need to have JavaScript enabled in your browser, and either the Flash Plugin or an HTML5-Video enabled browser. Download <a href="http://get.adobe.com/flashplayer/" target="_black">the latest Flash player</a> and try again.</noscript>
+			</div>
+			<div class="tpReleaseList" id="releases"
+				tp:hasOverlay="true"
+				tp:allowScrolling="false"
+				tp:columns="2"
+				tp:itemsPerPage="4"
+				tp:playAll="true"
+				tp:autoLoad="false"
+				tp:autoPlay="true"
+				tp:showAirdate="false"
+				tp:showAuthor="false"
+				tp:showBitrate="false"
+				tp:showDescription="true"
+				tp:showFormat="false"
+				tp:showLength="true"
+				tp:showThumbnail="true"
+				tp:showTitle="true"
+				tp:skinUrl="http://pdk.theplatform.com/current/pdk/skins/brushed/brushed.json"
+				tp:thumbnailWidth="160"
+				tp:thumbnailHeight="90"
+				tp:backgroundColor="0x131313"
+				tp:thumbnailBackgroundColor="0x131313"
+				tp:frameColor="0x555555"
+				tp:itemBackgroundColor="0x131313"
+				tp:itemBackgroundHoverColor="0x131313"
+				tp:itemBackgroundSelectedColor="0x131313"
+				tp:textFrameColor="0x242424"
+				tp:thumbnailFrameColor="0x242424"
+				tp:itemFrameColor="0x242424"
+				tp:thumbnailHighlightHoverColor="0xdddddd"
+				tp:itemShineHoverColor="0xdddddd"
+				tp:textHighlightHoverColor="0xdddddd"
+				tp:textHoverColor="0xdddddd"
+				tp:thumbnailPaddingColor="0x131313"
+				tp:thumbnailHighlightSelectedColor="0xef2510"
+				tp:itemShineSelectedColor="0xef2510"
+				tp:textSelectedColor="0xef2510"
+				tp:textColor="0xbebebe"
+				tp:textBackgroundColor="0x131313"
+				tp:textHighlightSelectedColor="0xef2510"
+				tp:pageBackgroundColor="0x131313">
+			</div>			
+			<div class="tpReleaseModel" id="tpReleaseModel1"
+				tp:startIndex="1"
+				tp:endIndex="4"
+				tp:params="params=player%3DMade%2520For%2520Mobile%2520Sample"
+				tp:shuffle="false"
+				tp:feedsServiceURL="http://feed.theplatform.com/f/B5F0OC/WZNGSwaBkOG0">
+			</div>			
+		</div>
+	</div>
+	<div>
+		<ul id="liveFeedList"></ul>
+	</div>	
+</body>
+</html>
