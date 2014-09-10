@@ -19,12 +19,12 @@ var relatedItemsXML = [];
 			});			
 		},2000);	
 	
-		var relatedItemsUrl = $("#player").attr("tp:relatedItemsUrl");
-		parseRelatedItemsRSS(relatedItemsUrl);
+		// var relatedItemsUrl = $("#player").attr("tp:relatedItemsUrl");
+		// parseRelatedItemsRSS(relatedItemsUrl);
 
-		$("#liveFeedList").on( "click", ".liveFeedItem", function() {
-			$pdk.controller.setReleaseURL($(this).attr("releaseURL"));
-		});
+		// $("#liveFeedList").on( "click", ".liveFeedItem", function() {
+		// 	$pdk.controller.setReleaseURL($(this).attr("releaseURL"));
+		// });
 	};
 	
 	function parseRelatedItemsRSS(url) {
@@ -40,8 +40,12 @@ var relatedItemsXML = [];
 				//TODO: Create a proper object for all of this
 				window.relatedItemsXML.push(item);
 
-				//$("<li class='liveFeedItem' releaseURL='" + item.releaseURL + "'><img id='" + item.guid + "' src='http://lorempixel.com/114/64/'><p class='title'>" + item.title + "</p></li>").appendTo($("#liveFeedList"))
-			});
+				var $li 	= $('<li>', {class:'liveFeedItem', releaseURL: item.releaseURL});
+				var $p 		= $('<p>', { class: 'title', text: item.title });
+				var $img 	= $('<img>', {id: item.guid, src: 'http://lorempixel.com/114/64/'}); 
+
+				$li.append($p, $img).appendTo($("#liveFeedList"));				
+			 });
 		});
 	};	
 	
